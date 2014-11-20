@@ -78,7 +78,7 @@
 # endif
 #endif
 #if IMAGE_BL31
-#define PLAT_ARM_MMAP_ENTRIES		5
+#define PLAT_ARM_MMAP_ENTRIES		6
 #endif
 #if IMAGE_BL32
 #define PLAT_ARM_MMAP_ENTRIES		4
@@ -100,7 +100,7 @@
 #  define MAX_XLAT_TABLES		4
 # endif /* PLAT_ */
 #elif IMAGE_BL31
-# define MAX_XLAT_TABLES		2
+# define MAX_XLAT_TABLES		3
 #elif IMAGE_BL32
 # if ARM_TSP_RAM_LOCATION_ID == ARM_DRAM_ID
 #  define MAX_XLAT_TABLES		3
