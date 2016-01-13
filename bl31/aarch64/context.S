@@ -47,12 +47,12 @@ func el1_sysregs_context_save
 	mrs	x10, elr_el1
 	stp	x9, x10, [x0, #CTX_SPSR_EL1]
 
-	mrs	x11, spsr_abt
-	mrs	x12, spsr_und
+	//mrs	x11, spsr_abt
+	//mrs	x12, spsr_und
 	stp	x11, x12, [x0, #CTX_SPSR_ABT]
 
-	mrs	x13, spsr_irq
-	mrs	x14, spsr_fiq
+	//mrs	x13, spsr_irq
+	//mrs	x14, spsr_fiq
 	stp	x13, x14, [x0, #CTX_SPSR_IRQ]
 
 	mrs	x15, sctlr_el1
@@ -83,8 +83,8 @@ func el1_sysregs_context_save
 	mrs	x10, tpidrro_el0
 	stp	x9, x10, [x0, #CTX_TPIDR_EL0]
 
-	mrs	x11, dacr32_el2
-	mrs	x12, ifsr32_el2
+	//mrs	x11, dacr32_el2
+	//mrs	x12, ifsr32_el2
 	stp	x11, x12, [x0, #CTX_DACR32_EL2]
 
 	mrs	x13, par_el1
@@ -113,7 +113,7 @@ func el1_sysregs_context_save
 	str	x14, [x0, #CTX_CNTKCTL_EL1]
 #endif
 
-	mrs	x15, fpexc32_el2
+	//mrs	x15, fpexc32_el2
 	str	x15, [x0, #CTX_FP_FPEXC32_EL2]
 
 	ret
@@ -135,12 +135,12 @@ func el1_sysregs_context_restore
 	msr	elr_el1, x10
 
 	ldp	x11, x12, [x0, #CTX_SPSR_ABT]
-	msr	spsr_abt, x11
-	msr	spsr_und, x12
+	//msr	spsr_abt, x11
+	//msr	spsr_und, x12
 
 	ldp	x13, x14, [x0, #CTX_SPSR_IRQ]
-	msr	spsr_irq, x13
-	msr	spsr_fiq, x14
+	//msr	spsr_irq, x13
+	//msr	spsr_fiq, x14
 
 	ldp	x15, x16, [x0, #CTX_SCTLR_EL1]
 	msr	sctlr_el1, x15
@@ -171,8 +171,8 @@ func el1_sysregs_context_restore
 	msr	tpidrro_el0, x10
 
 	ldp	x11, x12, [x0, #CTX_DACR32_EL2]
-	msr	dacr32_el2, x11
-	msr	ifsr32_el2, x12
+	//msr	dacr32_el2, x11
+	//msr	ifsr32_el2, x12
 
 	ldp	x13, x14, [x0, #CTX_PAR_EL1]
 	msr	par_el1, x13
@@ -201,7 +201,7 @@ func el1_sysregs_context_restore
 #endif
 
 	ldr	x15, [x0, #CTX_FP_FPEXC32_EL2]
-	msr	fpexc32_el2, x15
+	//msr	fpexc32_el2, x15
 
 	/* No explict ISB required here as ERET covers it */
 

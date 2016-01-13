@@ -83,7 +83,7 @@ uint32_t plat_interrupt_type_to_line(uint32_t type,
 	 * Secure interrupts are signalled using the IRQ line if the FIQ_EN
 	 * bit is not set else they are signalled using the FIQ line.
 	 */
-	if (gicv2_is_fiq_enabled())
+	if (1 || gicv2_is_fiq_enabled())
 		return __builtin_ctz(SCR_FIQ_BIT);
 	else
 		return __builtin_ctz(SCR_IRQ_BIT);
