@@ -81,3 +81,14 @@ ENABLE_PLAT_COMPAT	:= 	0
 COLD_BOOT_SINGLE_CPU	:=	1
 $(eval $(call add_define,COLD_BOOT_SINGLE_CPU))
 
+BL32_RAM_LOCATION	:=	tdram
+ifeq (${BL32_RAM_LOCATION}, tsram)
+  BL32_RAM_LOCATION_ID = SEC_SRAM_ID
+else ifeq (${BL32_RAM_LOCATION}, tdram)
+  BL32_RAM_LOCATION_ID = SEC_DRAM_ID
+else
+  $(error "Unsupported BL32_RAM_LOCATION value")
+endif
+
+# Process flags
+$(eval $(call add_define,BL32_RAM_LOCATION_ID))

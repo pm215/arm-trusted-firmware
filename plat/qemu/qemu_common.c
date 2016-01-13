@@ -105,6 +105,7 @@ static const mmap_region_t plat_qemu_mmap[] = {
 #ifdef MAP_DEVICE1
 	MAP_DEVICE1,
 #endif
+	MAP_BL32_MEM,
 	{0}
 };
 #endif
