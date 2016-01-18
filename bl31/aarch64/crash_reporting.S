@@ -321,8 +321,8 @@ func do_crash_reporting
 	mrs	x9, tpidr_el1
 	mrs	x10, tpidr_el0
 	mrs	x11, tpidrro_el0
-	//mrs	x12, dacr32_el2
-	//mrs	x13, ifsr32_el2
+	mrs	x12, dacr32_el2
+	mrs	x13, ifsr32_el2
 	mrs	x14, par_el1
 	mrs	x15, mpidr_el1
 	bl	str_in_crash_buf_print

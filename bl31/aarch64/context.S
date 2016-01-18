@@ -171,8 +171,8 @@ func el1_sysregs_context_restore
 	msr	tpidrro_el0, x10
 
 	ldp	x11, x12, [x0, #CTX_DACR32_EL2]
-	//msr	dacr32_el2, x11
-	//msr	ifsr32_el2, x12
+	msr	dacr32_el2, x11
+	msr	ifsr32_el2, x12
 
 	ldp	x13, x14, [x0, #CTX_PAR_EL1]
 	msr	par_el1, x13
