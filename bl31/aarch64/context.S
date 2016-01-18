@@ -113,7 +113,7 @@ func el1_sysregs_context_save
 	str	x14, [x0, #CTX_CNTKCTL_EL1]
 #endif
 
-	//mrs	x15, fpexc32_el2
+	mrs	x15, fpexc32_el2
 	str	x15, [x0, #CTX_FP_FPEXC32_EL2]
 
 	ret
@@ -201,7 +201,7 @@ func el1_sysregs_context_restore
 #endif
 
 	ldr	x15, [x0, #CTX_FP_FPEXC32_EL2]
-	//msr	fpexc32_el2, x15
+	msr	fpexc32_el2, x15
 
 	/* No explict ISB required here as ERET covers it */
 

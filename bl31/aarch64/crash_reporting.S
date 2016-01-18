@@ -336,7 +336,7 @@ func do_crash_reporting
 	mrs	x15, cntv_cval_el0
 	bl	str_in_crash_buf_print
 	mrs	x8, cntkctl_el1
-	//mrs	x9, fpexc32_el2
+	mrs	x9, fpexc32_el2
 	mrs	x10, sp_el0
 	bl	str_in_crash_buf_print
 
