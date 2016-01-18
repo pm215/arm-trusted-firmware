@@ -301,10 +301,10 @@ func do_crash_reporting
 	adr	x6, non_el3_sys_regs
 	mrs	x8, spsr_el1
 	mrs	x9, elr_el1
-	//mrs	x10, spsr_abt
-	//mrs	x11, spsr_und
-	//mrs	x12, spsr_irq
-	//mrs	x13, spsr_fiq
+	mrs	x10, spsr_abt
+	mrs	x11, spsr_und
+	mrs	x12, spsr_irq
+	mrs	x13, spsr_fiq
 	mrs	x14, sctlr_el1
 	mrs	x15, actlr_el1
 	bl	str_in_crash_buf_print
