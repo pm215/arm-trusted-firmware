@@ -179,7 +179,7 @@
  * PL011 related constants
  */
 #define UART0_BASE			0x09000000
-#define UART1_BASE			0x09010000
+#define UART1_BASE			0x09040000
 #define UART0_CLK_IN_HZ			1
 #define UART1_CLK_IN_HZ			1
 
