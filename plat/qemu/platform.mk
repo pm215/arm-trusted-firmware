@@ -66,6 +66,7 @@ BL31_SOURCES		+=	lib/cpus/aarch64/aem_generic.S		\
 				lib/cpus/aarch64/cortex_a57.S		\
 				drivers/arm/gic/v2/gicv2_helpers.c	\
 				drivers/arm/gic/v2/gicv2_main.c		\
+				drivers/arm/gic/common/gic_common.c	\
 				plat/common/aarch64/platform_mp_stack.S	\
 				plat/common/aarch64/plat_psci_common.c	\
 				plat/common/aarch64/plat_common.c	\

@@ -28,6 +28,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <gicv2.h>
 #include <platform_def.h>
 #include <bl_common.h>
 #include <console.h>
@@ -107,13 +108,33 @@ void bl31_plat_arch_setup(void)
 			      BL31_COHERENT_RAM_BASE, BL31_COHERENT_RAM_LIMIT);
 }
 
+static const unsigned int irq_sec_array[] = {
+	QEMU_IRQ_SEC_SGI_0,
+	QEMU_IRQ_SEC_SGI_1,
+	QEMU_IRQ_SEC_SGI_2,
+	QEMU_IRQ_SEC_SGI_3,
+	QEMU_IRQ_SEC_SGI_4,
+	QEMU_IRQ_SEC_SGI_5,
+	QEMU_IRQ_SEC_SGI_6,
+	QEMU_IRQ_SEC_SGI_7,
+};
+
+static const struct gicv2_driver_data plat_gicv2_driver_data = {
+	.gicd_base = GICD_BASE,
+	.gicc_base = GICC_BASE,
+	.g0_interrupt_num = ARRAY_SIZE(irq_sec_array),
+	.g0_interrupt_array = irq_sec_array,
+};
+
 void bl31_platform_setup(void)
 {
-#if 0
 	/* Initialize the gic cpu and distributor interfaces */
-	plat_arm_gic_init();
-	arm_gic_setup();
+	gicv2_driver_init(&plat_gicv2_driver_data);
+	gicv2_distif_init();
+	gicv2_pcpu_distif_init();
+	gicv2_cpuif_enable();
 
+#if 0
 	/* Enable and initialize the System level generic timer */
 	mmio_write_32(ARM_SYS_CNTCTL_BASE + CNTCR_OFF,
 			CNTCR_FCREQ(0) | CNTCR_EN);

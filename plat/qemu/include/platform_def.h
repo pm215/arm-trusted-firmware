@@ -197,7 +197,27 @@
 #define PLAT_QEMU_FIP_BASE		QEMU_FLASH0_BASE
 #define PLAT_QEMU_FIP_MAX_SIZE		QEMU_FLASH0_SIZE
 
-#define DEVICE0_BASE			0x09000000
-#define DEVICE0_SIZE			0x00011000
+#define DEVICE0_BASE			0x08000000
+#define DEVICE0_SIZE			0x00021000
+#define DEVICE1_BASE			0x09000000
+#define DEVICE1_SIZE			0x00011000
+
+/*
+ * GIC related constants
+ */
+
+#define GICD_BASE			0x8000000
+#define GICC_BASE			0x8010000
+#define GICR_BASE			0
+
+
+#define QEMU_IRQ_SEC_SGI_0		8
+#define QEMU_IRQ_SEC_SGI_1		9
+#define QEMU_IRQ_SEC_SGI_2		10
+#define QEMU_IRQ_SEC_SGI_3		11
+#define QEMU_IRQ_SEC_SGI_4		12
+#define QEMU_IRQ_SEC_SGI_5		13
+#define QEMU_IRQ_SEC_SGI_6		14
+#define QEMU_IRQ_SEC_SGI_7		15
 
 #endif /* __PLATFORM_DEF_H__ */
