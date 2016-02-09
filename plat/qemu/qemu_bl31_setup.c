@@ -150,8 +150,7 @@ void bl31_platform_setup(void)
 
 uint64_t plat_get_syscnt_freq(void)
 {
-	/* XXX fixme */
-	return 100000;
+	return (1000 * 1000 * 1000) / 16;
 }
 
 /*******************************************************************************
